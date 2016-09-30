@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+  <string name="Hello">Hello World, Click Me!</string>
+  <string name="app_name">Greetings.Droid</string>
+  <string name="facebook_app_id">1667790996871027</string>
+
+  <string name ="register">Register</string>
+  <string name="done">Done</string>
+
+  <string name="home_page_recyclerview_templateselector">Greetings.Droid.Utility.HomePageItemTemplateSelector, Greetings.Droid</string>
+</resources>
