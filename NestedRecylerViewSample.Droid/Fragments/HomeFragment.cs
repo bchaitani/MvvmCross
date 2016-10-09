@@ -1,15 +1,16 @@
-using MvvmCross.Droid.Support.V4;
-using NestedRecylerViewSample.Core.ViewModels;
-using MvvmCross.Droid.Shared.Attributes;
-using Android.Runtime;
 using Android.OS;
-using Android.Views;
-using MvvmCross.Binding.Droid.BindingContext;
-using Android.Widget;
+using Android.Runtime;
 using Android.Support.V7.Widget;
-using Android.Support.V4.Widget;
+using Android.Views;
+using Android.Widget;
+using NestedRecylerViewSample.Core.ViewModels;
 using NestedRecylerViewSample.Droid.Adapters;
+using NestedRecylerViewSample.Droid.Utility;
+using MvvmCross.Binding.Droid.BindingContext;
+using MvvmCross.Droid.Shared.Attributes;
+using MvvmCross.Droid.Support.V4;
 using MvvmCross.Droid.Support.V7.RecyclerView;
+using System;
 
 namespace NestedRecylerViewSample.Droid.Fragments
 {
@@ -30,8 +31,15 @@ namespace NestedRecylerViewSample.Droid.Fragments
         public override void OnActivityCreated(Bundle savedInstanceState)
         {
             base.OnActivityCreated(savedInstanceState);
-            recyclerView.SetLayoutManager(new LinearLayoutManager(Activity));
-            //recyclerView.SetLayoutManager(new GridLayoutManager(Activity, 2));
+            recyclerView.HasFixedSize = true;
+            var layoutManager = new LinearLayoutManager(Activity);
+            var onScrollListener = new LoadMoreRecyclerViewOnScrollListener(layoutManager);
+            onScrollListener.LoadMoreEvent += (object sender, EventArgs e) =>
+            {
+                ViewModel.addItems(); 
+            };
+            recyclerView.AddOnScrollListener(onScrollListener);
+            recyclerView.SetLayoutManager(layoutManager);
             recyclerView.Adapter = new HomeListAdapter((IMvxAndroidBindingContext)BindingContext);
         }
 

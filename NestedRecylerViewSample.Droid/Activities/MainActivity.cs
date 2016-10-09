@@ -19,19 +19,12 @@ namespace NestedRecylerViewSample.Droid.Activities
             set { base.ViewModel = value; }
         }
 
-        private BottomBar _bottomBar;
         protected override void OnCreate(Bundle savedInstanceState)
         {
             base.OnCreate(savedInstanceState);
             SetContentView(Resource.Layout.activity_main);
 
             ViewModel.ShowHomeViewModel();
-        }
-
-        protected override void OnSaveInstanceState(Bundle outState)
-        {
-            base.OnSaveInstanceState(outState);
-            _bottomBar.OnSaveInstanceState(outState);
-        }   
+        } 
     }
 }

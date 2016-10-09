@@ -2,8 +2,8 @@
 {
     public class Category
     {
-        public int Id;
-        public string Title;
-        public string Image;
+        public int Id { get; set; }
+        public string Title { get; set; }
+        public string Image { get; set; }
     }
 }

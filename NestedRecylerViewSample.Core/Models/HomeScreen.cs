@@ -18,6 +18,7 @@ namespace NestedRecylerViewSample.Core.Models
     public enum HomeScreenDisplayType
     {
         CardsType,
-        CategoriesType
+        CategoriesType,
+        CategoriesTitle
     }
 }

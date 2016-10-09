@@ -1,43 +1,47 @@
-﻿using NestedRecylerViewSample.Core.Models; 
+﻿using NestedRecylerViewSample.Core.Models;
 using System.Collections.ObjectModel;
 
 namespace NestedRecylerViewSample.Core.ViewModels
 {
     public class HomeViewModel : BaseViewModel
-    { 
+    {
         public HomeViewModel()
-        { 
+        {
 
             HomeScreenItems = new ObservableCollection<HomeScreen>();
-            for (int i = 0; i < 20; i++)
-            {
-                HomeScreen item = new HomeScreen();
-                if (i == 0)
-                {
-                    item.Type = HomeScreenDisplayType.CardsType;
-                    item.Cards = new ObservableCollection<Card>();
-                    for (int j = 0; j < 20; j++) {
-                        Card card = new Card();
-                        string Image = "https://media.digitalprintingireland.ie/media/images/products/slides/43/greeting-cards-5.jpg"; 
-                        card.Id = j*10;
-                        card.Title = "Card " + j;
-                        card.ImageUrl = Image;
 
-                        item.Cards.Add(card);
-                    }
+            HomeScreen item = new HomeScreen();
+
+            item.Type = HomeScreenDisplayType.CardsType;
+            item.Cards = new ObservableCollection<Card>();
+            for (int j = 0; j < 20; j++)
+            {
+                Card card = new Card();
+                string Image = "";
+                if (j % 3 == 0)
+                {
+                    Image = "http://4.bp.blogspot.com/-NsnrSc5uP78/UlZpnlyFbFI/AAAAAAAABjc/TKvgwmif_0E/s1600/IMG_1202.jpg";
+                }
+                else if (j % 2 == 0)
+                {
+                    Image = "http://cdnpix.com/show/imgs/5405c24dc4364cec0271a09185f50636.jpg";
                 }
                 else
                 {
-                    item.Type = HomeScreenDisplayType.CategoriesType;
-                    string Image = "https://media.digitalprintingireland.ie/media/images/products/slides/43/greeting-cards-5.jpg";
-                    item.Id = i;
-                    item.Title = "Card " + i;
-                    item.ImageUrl = Image;
+                    Image = "http://stamping.thefuntimesguide.com/files/Easy_Birthday_Card_Idea.jpg";
                 }
 
-                HomeScreenItems.Add(item);
+                card.Id = j * 10;
+                card.Title = "Card " + j;
+                card.ImageUrl = Image;
 
-            } 
+                item.Cards.Add(card);
+            }
+
+            HomeScreenItems.Add(item);
+
+            addItems();
+
         }
 
         private ObservableCollection<HomeScreen> homeScreenItems;
@@ -51,25 +55,36 @@ namespace NestedRecylerViewSample.Core.ViewModels
             }
         }
 
-        private ObservableCollection<Category> homeScreenCategories;
-        public ObservableCollection<Category> HomeScreenCategories
+        public void addItems()
         {
-            get { return homeScreenCategories; }
-            set
+            for (int i = 0; i < 30; i++)
             {
-                homeScreenCategories = value;
-                RaisePropertyChanged(() => HomeScreenCategories);
-            }
-        }
+                HomeScreen item = new HomeScreen();
 
-        private ObservableCollection<Card> homeScreenCards;
-        public ObservableCollection<Card> HomeScreenCards
-        {
-            get { return homeScreenCards; }
-            set
-            {
-                homeScreenCards = value;
-                RaisePropertyChanged(() => HomeScreenCards);
+                item.Type = HomeScreenDisplayType.CategoriesType;
+                string Image = "";
+                if (i % 4 == 0)
+                {
+                    Image = "http://www.planwallpaper.com/static/images/Merry-christmas-messages.jpg";
+                }
+                else if (i % 3 == 0)
+                {
+                    Image = "https://image.freepik.com/free-vector/halloween-greeting-card_23-2147519110.jpg";
+                }
+                else if (i % 2 == 0)
+                {
+                    Image = "http://www.jattdisite.com/wp-content/uploads/2016/01/Happy-New-Year-Wallpapers-3D.jpg";
+                }
+                else
+                {
+                    Image = "http://valentinedaywishes.in/wp-content/uploads/2016/01/happy-valentines-day-wishes-2016_wishes.jpg";
+                }
+
+                item.Id = i;
+                item.Title = "Card " + i;
+                item.ImageUrl = Image;
+
+                HomeScreenItems.Add(item);
             }
         }
     }

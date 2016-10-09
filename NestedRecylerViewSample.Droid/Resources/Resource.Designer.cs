@@ -4061,8 +4061,8 @@ namespace NestedRecylerViewSample.Droid
 			// aapt resource value: 0x7f0a008b
 			public const int cancel_action = 2131361931;
 			
-			// aapt resource value: 0x7f0a009a
-			public const int cards_recycler_view = 2131361946;
+			// aapt resource value: 0x7f0a009c
+			public const int cards_recycler_view = 2131361948;
 			
 			// aapt resource value: 0x7f0a002f
 			public const int center = 2131361839;
@@ -4181,6 +4181,12 @@ namespace NestedRecylerViewSample.Droid
 			// aapt resource value: 0x7f0a0047
 			public const int image = 2131361863;
 			
+			// aapt resource value: 0x7f0a009a
+			public const int image1 = 2131361946;
+			
+			// aapt resource value: 0x7f0a009b
+			public const int image2 = 2131361947;
+			
 			// aapt resource value: 0x7f0a0098
 			public const int indicator = 2131361944;
 			
@@ -4211,8 +4217,8 @@ namespace NestedRecylerViewSample.Droid
 			// aapt resource value: 0x7f0a008d
 			public const int media_actions = 2131361933;
 			
-			// aapt resource value: 0x7f0a009b
-			public const int menu_done = 2131361947;
+			// aapt resource value: 0x7f0a009d
+			public const int menu_done = 2131361949;
 			
 			// aapt resource value: 0x7f0a0021
 			public const int middle = 2131361825;
